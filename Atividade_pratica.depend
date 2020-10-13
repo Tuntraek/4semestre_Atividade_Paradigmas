@@ -45,3 +45,26 @@
 	<string.h>
 	"tools.h"
 
+1602632292 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\atleta.c
+	"atleta.h"
+
+1602632292 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\atleta.h
+
+1602632292 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\tools.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+
+1602632292 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\tools.h
+
+1602632292 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+	"arremesso.h"
+
+1602632521 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\arremesso.h
+	"atleta.h"
+

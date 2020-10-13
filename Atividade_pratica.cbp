@@ -31,13 +31,25 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Atividade_pratica.cbp" />
+		<Unit filename="Atividade_pratica.depend" />
+		<Unit filename="Atividade_pratica.layout" />
+		<Unit filename="README.md" />
 		<Unit filename="arremesso.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="arremesso.h" />
+		<Unit filename="atleta.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="atleta.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tools.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

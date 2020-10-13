@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 #include "arremesso.h"
-#include "atleta.h"
+
 #include "tools.h"
 
 void printmenu(){
@@ -85,7 +85,7 @@ void arremessoinit(){
     playerturn(atleta1);
     playerturn(atleta2);
 
-    setwinner()
+    //setwinner()
     if(atleta1)
         free(atleta1);
     if(atleta2)
