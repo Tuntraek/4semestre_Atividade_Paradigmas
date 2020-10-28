@@ -5,6 +5,7 @@
 #include "tools.h"
 #include "arremesso.h"
 
+
 void printmainmenu(){
     fputs( "+-------------------------+\n"
            "|           MENU          |\n"
@@ -24,14 +25,7 @@ void printendmessage(){
           "|        NOSSO PROGRAMA!        |\n"
           "|                               |\n"
           "+-------------------------------+\n", stdout);
-    sleep(3);
-}
-
-void printinvalidinput(){
-    system("cls");
-    fputs("** Opcao invalida **\n", stdout);
-    sleep(1);
-    system("cls");
+    Sleep(2000);
 }
 
 int main()
@@ -46,13 +40,15 @@ int main()
 
         switch(option){
             case 1:
-                arremessoinit();
+                switch(arremessoinit()){
+                    case SIM:
+                };
                 break;
             case 3:
                 printendmessage();
                 break;
             default:
-                printinvalidinput();
+                printinvalidinput("** Opcao errada **");
                 break;
         }
     }

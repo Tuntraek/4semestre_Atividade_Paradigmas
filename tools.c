@@ -4,6 +4,22 @@
 
 #include "tools.h"
 
+void printinvalidinput(char *message){
+    system("cls");
+    fputs(message, stdout);
+    sleep(1);
+    system("cls");
+}
+
+char* upperTolower(char* str){
+    int pos = 0;
+    while(str[pos] != '\0' && ( (int)str[pos] < 90 && (int)str[pos] > 65) ){
+        str[pos] = str[pos] + 32;
+        pos++;
+    }
+    return str;
+}
+
 void getinput(char *value, char *prompt ){
     // prompt é um ou mais caracteres que aparecem no começo da linha para input
     fputs(prompt, stdout);
@@ -46,7 +62,7 @@ void getint(int *ival){
 void getdouble(double *dval){
     // C string para input do usuario
     char value[MAX_INPUT] = "";
-    getinput(value, "> ");
+    getinput(value, " ");
 
     // double temporario para pegar o inteiro da string
     double temp;
