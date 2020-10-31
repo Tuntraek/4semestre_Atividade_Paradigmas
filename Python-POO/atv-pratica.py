@@ -15,6 +15,18 @@ class Validador:
             time.sleep(2.5)
             return False
 
+    def validadorFloat(self, n):
+        try:
+            n = float(input())
+            return n
+        except:
+            print('---------------------------')
+            print('Entrada inválida!')
+            print('Digite novamente')
+            print('---------------------------')
+            time.sleep(2.5)
+            return False
+
 
 class Jogador:
     def __init__(self, nome):
@@ -53,6 +65,9 @@ class Ginastica(Jogo):
             while (pontuacao[cont] == False):
                 print('Digite a nota '+str(cont+1))
                 pontuacao[cont] = validador.validadorInt(pontuacao[cont])
+                if(pontuacao[cont]<0 or pontuacao[cont]>10):
+                    print('Nota de 0 a 10!')
+                    pontuacao[cont]=False
 
             jog.setPontuacao(pontuacao)
             cont = cont + 1
@@ -88,6 +103,11 @@ class Ginastica(Jogo):
             print('Parabéns, '+jog2.getNome()+', você venceu!')
 
         print('---------------------------')
+
+    class Arremesso (Jogo):
+        def __init__(self, jog1, jog2):
+            super().__init__(jog1, jog2)
+            
 
 
 def main():
