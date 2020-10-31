@@ -69,9 +69,9 @@ class Ginastica(Jogo):
         print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
         print('---------------------------')
         if int(jogo.calcNota(jog1))>int(jogo.calcNota(jog2)):
-            print('Parabéns '+jog1.getNome()+'!')
+            print('Parabéns, '+jog1.getNome()+', você venceu!')
         else:
-            print('Parabéns '+jog2.getNome()+'!')
+            print('Parabéns, '+jog2.getNome()+', você venceu!')
         print('---------------------------')
 def main():
     menu() 
@@ -98,6 +98,6 @@ def menu():
     print("----COMPETIÇÕES ESPORTIVAS----\n")
     print("Digite uma opção\n")
     print("1 - Ginástica artística")
-    print("2 - Arremeso de peso")
+    print("2 - Arremesso de peso")
     print("3 - Sair do jogo")
 main()
