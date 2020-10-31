@@ -3,7 +3,8 @@ import time
 
 
 class Validador:
-    def validadorInt(self, n):
+    @staticmethod
+    def Int(self, n):
         try:
             n = int(input())
             return n
@@ -13,9 +14,9 @@ class Validador:
             print('Digite novamente')
             print('---------------------------')
             time.sleep(2.5)
-            return False
-
-    def validadorFloat(self, n):
+            return 0
+    
+    def Float(self, n):
         try:
             n = float(input())
             return n
@@ -26,6 +27,17 @@ class Validador:
             print('---------------------------')
             time.sleep(2.5)
             return False
+    
+    def Alpha(self, str):
+        return str.isalpha()
+    def Input(self,nome):
+         while not Validador.Alpha(nome):
+            print('Digite novamente - apenas caracteres')
+            nome=input()
+         return nome
+        
+ 
+
 
 
 class Jogador:
@@ -64,10 +76,10 @@ class Ginastica(Jogo):
             pontuacao[cont] = False
             while (pontuacao[cont] == False):
                 print('Digite a nota '+str(cont+1))
-                pontuacao[cont] = validador.validadorInt(pontuacao[cont])
-                if(pontuacao[cont]<0 or pontuacao[cont]>10):
+                pontuacao[cont] = validador.Int(pontuacao[cont])
+                if(pontuacao[cont] < 0 or pontuacao[cont] > 10):
                     print('Nota de 0 a 10!')
-                    pontuacao[cont]=False
+                    pontuacao[cont] = False
 
             jog.setPontuacao(pontuacao)
             cont = cont + 1
@@ -89,6 +101,7 @@ class Ginastica(Jogo):
         for i in pontuacao:
             if not(int(i) == int(baixa)):
                 total += int(i)
+
         return int(total)
 
     def ganhador(self, jogo, jog1, jog2):
@@ -107,28 +120,30 @@ class Ginastica(Jogo):
     class Arremesso (Jogo):
         def __init__(self, jog1, jog2):
             super().__init__(jog1, jog2)
-            
 
 
 def main():
-
-    opcao = False
-    validador = Validador()
-    while (opcao == False):
+    val = Validador()
+    opcao = 0
+    while (opcao == 0):
         os.system("cls")
         menu()
-        opcao = validador.validadorInt(opcao)
+        opcao = Validador.Int(opcao)
 
     if opcao == 1:
         print('Digite o nome do jogador 1')
-        j1 = input()
+        j1 = ""
+        j1=Validador.Input(j1)
+     
+
         print('Digite o nome do jogador 2')
-        j2 = input()
+        j2 = ""
+        j2=Validador.Input(j2)
         jog1Gin = Jogador(j1)
         jog2Gin = Jogador(j2)
         ginastica = Ginastica(jog1Gin, jog2Gin)
         ginastica.iniciarJogo(jog1Gin, jog2Gin)
-        main()
+        print('Jogar mais uma partida? ')
     elif opcao == 2:
         main()
     elif opcao == 3:
