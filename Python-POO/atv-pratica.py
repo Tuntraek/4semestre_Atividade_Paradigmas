@@ -75,14 +75,6 @@ class Ginastica(Jogo):
             print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
             print('---------------------------')
             print('Parabéns '+jog2.getNome()+'!')
-
-
-
-
-
-
-
-            
 def main():
     menu() 
     opcao = 0
