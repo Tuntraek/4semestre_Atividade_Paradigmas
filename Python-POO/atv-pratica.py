@@ -2,7 +2,7 @@ import os
 import time
     
 class Validador:
-    def validador(self,n):
+    def validadorInt(self,n):
         try:
             n = int(input())
             return n
@@ -11,12 +11,12 @@ class Validador:
             time.sleep(4)
             os.system("cls")
             main()
-            Validador.validador(n)
+            Validador.validadorInt(n)
 
 class Jogador:
     def __init__ (self,nome):
         self.__nome = nome
-        self.__pontuacao=[1,1,1,1,1]
+        self.__pontuacao=[int,int,int,int,int]
     def getNome(self):
         return self.__nome
     def getPontuacao(self):
@@ -56,13 +56,13 @@ class Ginastica(Jogo):
         pontuacao = jog.getPontuacao()
         baixa = pontuacao[0]
         for i in pontuacao:
-            if i<baixa:
-                baixa = i
-        total=0
+            if int(i)<int(baixa):
+                baixa = int(i)
+        total=int(0)
         for i in pontuacao:
-            if not(i == baixa):
+            if not(int(i) == int(baixa)):
                 total+=int(i)
-        return total
+        return int(total)
 
     def ganhador(self,jogo,jog1,jog2):
         print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
@@ -70,14 +70,17 @@ class Ginastica(Jogo):
         print('---------------------------')
         if int(jogo.calcNota(jog1))>int(jogo.calcNota(jog2)):
             print('Parabéns, '+jog1.getNome()+', você venceu!')
+        elif int(jogo.calcNota(jog1))==int(jogo.calcNota(jog2)):
+            print("Empate entre "+jog1.getNome()+' e '+jog1.getNome())
         else:
             print('Parabéns, '+jog2.getNome()+', você venceu!')
+        
         print('---------------------------')
 def main():
     menu() 
     opcao = 0
     validador = Validador()
-    opcao = validador.validador(opcao)
+    opcao = validador.validadorInt(opcao)
     if opcao == 1:
         print('Digite o nome do jogador 1')
         j1=input()
