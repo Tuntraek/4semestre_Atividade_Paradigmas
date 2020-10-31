@@ -1,8 +1,24 @@
 #include "arremesso.h"
 
+void arremessoinit(){
+    printarremessomenu();
 
+    atleta *atleta1 = malloc(sizeof(atleta));
+    atleta *atleta2 = malloc(sizeof(atleta));
 
-void printmenu(){
+    arremessoplayerturn(atleta1);
+    arremessoplayerturn(atleta2);
+
+    printwinner(setwinner(atleta1, atleta2));
+
+    if(atleta1)
+        free(atleta1);
+    if(atleta2)
+        free(atleta2);
+
+}
+
+void printarremessomenu(){
     system("cls");
     char p[10];
     fputs("+---------------------------+\n"
@@ -11,7 +27,7 @@ void printmenu(){
           "|  cada. Vence quem possuir |\n"
           "|   a maior distancia. Em   |\n"
           "|   caso de empate, vence   |\n"
-          "|   quem tiver a segunda    |\n"
+          "|   quem tiver a proxima    |\n"
           "|     maior distancia.      |\n"
           "+---------------------------+\n"
           " ENTER para continuar...", stdout);
@@ -27,27 +43,7 @@ void calculatehighscore(atleta *atleta_){
     qsort(&atleta_->highscores, 3, sizeof(double), compare_doubles);
 }
 
-void getplayername(atleta *atleta_){
-    char *nome = NULL;
-    size_t len;
-
-    while(TRUE){
-        getinput(atleta_->nome, "Primeiro nome: ");
-        nome = &atleta_->nome;
-
-        len = strlen(nome);
-        if (len > 0)
-            break;
-        printinvalidinput("** Nome invalido. **");
-    }
-
-    if(nome[len-1] == '\n'){
-        nome[len-1] = '\0';
-    }
-
-}
-
-void playerturn(atleta *atleta_){
+void arremessoplayerturn(atleta *atleta_){
 
     getplayername(atleta_);
     system("cls");
@@ -80,18 +76,21 @@ atleta* setwinner(atleta *atleta1, atleta *atleta2){
     int i = 0;
     do {
         if(atleta1->highscores[i] == atleta2->highscores[i]){
+            /*Se as pontuações forem iguais comparamos
+             *os próximos highscores de ambos atletas.
+             */
             i++;
             break;
-        } else if (atleta1->highscores[i] > atleta2->highscores[i])
+        }else if (atleta1->highscores[i] > atleta2->highscores[i])
             return atleta1;
         else
             return atleta2;
     } while (i != 2);
+    //NULL indicando empate.
     return NULL;
 }
 
-void printwinner(atleta* atleta){
-
+void printloadingresult(){
     fputs("Calculando resultado", stdout);
     Sleep(500);
     for(int i=0; i<3; ++i){
@@ -100,6 +99,11 @@ void printwinner(atleta* atleta){
     }
     system("cls");
     Sleep(400);
+}
+
+void printwinner(atleta* atleta){
+
+    printloadingresult();
 
     char message[100];
 
@@ -111,40 +115,4 @@ void printwinner(atleta* atleta){
     }
     Sleep(3000);
     system("cls");
-}
-
-int playagain(){
-    char resposta[10];
-    while(TRUE){
-        getinput(resposta, "Deseja jogar novamente?[sim/nao]");
-        upperTolower(resposta);
-        if(strcmp(resposta, "sim") == 0)
-            return 1;
-        else if (strcmp(resposta, "nao") == 0)
-            return 0;
-        else
-            ;
-    }
-
-}
-
-enum JOGARNOVAMENTE arremessoinit(){
-    printmenu();
-
-    atleta *atleta1 = malloc(sizeof(atleta));
-    atleta *atleta2 = malloc(sizeof(atleta));
-
-
-    playerturn(atleta1);
-    playerturn(atleta2);
-
-    printwinner(setwinner(atleta1, atleta2));
-
-    if(atleta1)
-        free(atleta1);
-    if(atleta2)
-        free(atleta2);
-
-    return playagain();
-
 }

@@ -45,34 +45,44 @@
 	<string.h>
 	"tools.h"
 
-1602632292 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\atleta.c
+1603890671 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\atleta.c
 	"atleta.h"
 
-1602632292 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\atleta.h
+1603892565 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\atleta.h
 
-1603836037 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\tools.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
+1603895774 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\tools.c
 	"tools.h"
 
-1603834198 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\tools.h
-
-1603833929 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\main.c
-	<stdio.h>
-	<stdlib.h>
-	<string.h>
-	"tools.h"
-	"arremesso.h"
-
-1603840116 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\arremesso.h
-	<string.h>
-	<stdlib.h>
-	<stdio.h>
+1603893542 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\tools.h
 	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
 	"atleta.h"
+	<stdbool.h>
+
+1603891344 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\main.c
+	"main.h"
+
+1603892781 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\arremesso.h
 	"tools.h"
 
-1603840196 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\arremesso.c
+1603893992 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\arremesso.c
 	"arremesso.h"
+
+1603890004 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\scr\ginasticaartistica.c
+
+1603893055 source:c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\ginasticaartistica.c
+	"ginasticaArtistica.h"
+
+1603891342 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\main.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+	"arremesso.h"
+	"ginasticaArtistica.h"
+
+1603892781 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\ginasticaartistica.h
+	"tools.h"
 

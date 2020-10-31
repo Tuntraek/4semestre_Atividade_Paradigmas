@@ -1,14 +1,71 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 #include "tools.h"
 
 void printinvalidinput(char *message){
     system("cls");
     fputs(message, stdout);
-    sleep(1);
+    Sleep(1000);
     system("cls");
+}
+
+void getplayername(atleta *atleta_){
+    char *nome = NULL;
+    size_t len;
+
+    while(TRUE){
+        getinput(atleta_->nome, "Primeiro nome: ");
+        nome = atleta_->nome;
+
+        len = strlen(nome);
+        if (len > 0 && validateName(atleta_))
+            break;
+        printinvalidinput("** Nome invalido. **");
+    }
+
+    if(nome[len-1] == '\n'){
+        nome[len-1] = '\0';
+    }
+
+}
+
+_Bool validateName(atleta * atleta_){
+    int i = 0;
+    char *letra = &(atleta_->nome);
+    while(*letra != '\0'){
+        if( (int) *(letra+i) < 65   ||
+          ( (int) *(letra+i) > 90   &&
+            (int) *(letra+i) < 97 ) ||
+            (int) *(letra+i) > 122   )
+        {
+            return false;
+        } else {
+            if(*(letra+i+1) == '\0')
+                return true;
+            else
+                i++;
+        }
+    }
+}
+
+void printmainmenu(){
+    fputs( "+-------------------------+\n"
+           "|           MENU          |\n"
+           "|                         |\n"
+           "| 1 - Arremesso de peso   |\n"
+           "| 2 - Ginastica Artistica |\n"
+           "| 3 -       SAIR          |\n"
+           "+-------------------------+\n", stdout);
+
+}
+
+void printendmessage(){
+    system("cls");
+    fputs("+-------------------------------+\n"
+          "|                               |\n"
+          "|      OBRIGADO POR USAR O      |\n"
+          "|        NOSSO PROGRAMA!        |\n"
+          "|                               |\n"
+          "+-------------------------------+\n", stdout);
+    Sleep(2000);
 }
 
 char* upperTolower(char* str){
