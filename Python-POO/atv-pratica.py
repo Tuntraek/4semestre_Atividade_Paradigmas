@@ -65,15 +65,12 @@ class Ginastica(Jogo):
         return total
 
     def ganhador(self,jogo,jog1,jog2):
+        print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
+        print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
+        print('---------------------------')
         if int(jogo.calcNota(jog1))>int(jogo.calcNota(jog2)):
-            print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
-            print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
-            print('---------------------------')
             print('Parabéns '+jog1.getNome()+'!')
-        elif jogo.calcNota(jog1)<jogo.calcNota(jog2):
-            print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
-            print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
-            print('---------------------------')
+        else:
             print('Parabéns '+jog2.getNome()+'!')
 def main():
     menu() 
