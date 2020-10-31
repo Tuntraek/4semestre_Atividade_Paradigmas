@@ -72,6 +72,7 @@ class Ginastica(Jogo):
             print('Parabéns '+jog1.getNome()+'!')
         else:
             print('Parabéns '+jog2.getNome()+'!')
+        print('---------------------------')
 def main():
     menu() 
     opcao = 0
