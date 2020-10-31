@@ -8,8 +8,10 @@ class Validador:
             n = int(input())
             return n
         except:
-            print('\nEntrada inválida!')
-            print('Digite novamente\n')
+            print('---------------------------')
+            print('Entrada inválida!')
+            print('Digite novamente')
+            print('---------------------------')
             time.sleep(2.5)
             return False
 
@@ -46,12 +48,12 @@ class Ginastica(Jogo):
         print('---------------------------')
         print('Jogador '+jog.getNome())
         while(cont < 5):
-            
+
             pontuacao[cont] = False
             while (pontuacao[cont] == False):
                 print('Digite a nota '+str(cont+1))
                 pontuacao[cont] = validador.validadorInt(pontuacao[cont])
-                
+
             jog.setPontuacao(pontuacao)
             cont = cont + 1
         print('---------------------------')
