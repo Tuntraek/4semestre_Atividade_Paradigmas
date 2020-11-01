@@ -3,7 +3,6 @@ import time
 
 
 class Validador:
-    @staticmethod
     def Int(self, n):
         try:
             n = int(input())
@@ -15,7 +14,7 @@ class Validador:
             print('---------------------------')
             time.sleep(2.5)
             return 0
-    
+
     def Float(self, n):
         try:
             n = float(input())
@@ -27,13 +26,16 @@ class Validador:
             print('---------------------------')
             time.sleep(2.5)
             return False
-    
-    def Alpha(self, str):
-        return str.isalpha()
+
+    def Alpha(self, nome):
+        return str(nome).isalpha()
+
     def Input(self,nome):
-         while not Validador.Alpha(nome):
+         nome=input()
+         while not self.Alpha(nome):
             print('Digite novamente - apenas caracteres')
-            nome=input()
+            nome = input()
+            
          return nome
         
  
@@ -128,17 +130,15 @@ def main():
     while (opcao == 0):
         os.system("cls")
         menu()
-        opcao = Validador.Int(opcao)
+        opcao = val.Int(opcao)
 
     if opcao == 1:
         print('Digite o nome do jogador 1')
-        j1 = ""
-        j1=Validador.Input(j1)
-     
-
+        j1=''
+        j1=val.Input(j1)
         print('Digite o nome do jogador 2')
-        j2 = ""
-        j2=Validador.Input(j2)
+        j2 = ''
+        j2=val.Input(j2)
         jog1Gin = Jogador(j1)
         jog2Gin = Jogador(j2)
         ginastica = Ginastica(jog1Gin, jog2Gin)
