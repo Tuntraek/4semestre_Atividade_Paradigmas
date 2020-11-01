@@ -88,10 +88,17 @@ class Ginastica(Jogo):
         print('---------------------------')
 
     def iniciarJogo(self, jog1, jog2):
-        jogo = Ginastica(jog1, jog2)
-        jogo.nota(jog1)
-        jogo.nota(jog2)
-        jogo.ganhador(jogo, jog1, jog2)
+        partida=1
+        val = Validador()
+        while(partida==1):
+            jogo = Ginastica(jog1, jog2)
+            jogo.nota(jog1)
+            jogo.nota(jog2)
+            jogo.ganhador(jogo, jog1, jog2)
+            print('Jogar mais uma partida? (1 sim - 0 não)')
+            partida=val.Int(partida)
+        main()
+
 
     def calcNota(self, jog):
         pontuacao = jog.getPontuacao()
@@ -143,7 +150,6 @@ def main():
         jog2Gin = Jogador(j2)
         ginastica = Ginastica(jog1Gin, jog2Gin)
         ginastica.iniciarJogo(jog1Gin, jog2Gin)
-        print('Jogar mais uma partida? ')
     elif opcao == 2:
         main()
     elif opcao == 3:
