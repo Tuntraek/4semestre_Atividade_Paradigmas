@@ -79,7 +79,7 @@ class Jogo:
 
 # Classe Ginastica herdando a classe Jogo
 class Ginastica(Jogo):
-    #Construtor da classe - inicializa classe pai
+
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
 
@@ -103,12 +103,14 @@ class Ginastica(Jogo):
             jog.setPontuacao(pontuacao)
             cont = cont + 1
         print('---------------------------')
+
     # Método que calcula a nota final de cada jogador e a retorna.
     def calcNota(self, jog):
         pontuacao = jog.getPontuacao()
         pontuacao = sorted(pontuacao)
         total = int(0)
         contBaixa = 0
+
         for i in pontuacao:
             total = sum(pontuacao) - pontuacao[0]
 
@@ -119,6 +121,7 @@ class Ginastica(Jogo):
         print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
         print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
         print('---------------------------')
+
         if int(jogo.calcNota(jog1)) > int(jogo.calcNota(jog2)):
             print('Parabéns, '+jog1.getNome()+', você venceu!')
         elif int(jogo.calcNota(jog1)) == int(jogo.calcNota(jog2)):
@@ -126,8 +129,7 @@ class Ginastica(Jogo):
         else:
             print('Parabéns, '+jog2.getNome()+', você venceu!')
 
-
-    # Método que inicia todo o jogo e termina o mesmo baseado na escolha do usuário ao final da partida
+    # Método que inicia todo o jogo de Ginastica e termina o mesmo baseado na escolha do usuário ao final da partida
     def iniciarJogo(self, jog1, jog2):
         partida = 1
         val = Validador()
@@ -154,25 +156,31 @@ class Ginastica(Jogo):
                 partida = val.Int(partida)
             os.system("cls")
         os.system("cls")
+
         main()
         print('---------------------------')
 
 # Classe JogadorArremesso herdando a classe Jogador
 class JogadorArremesso(Jogador):
+
     def __init__(self, nome):
         self.__arremessos = []
         super().__init__(nome)
 
-    def AdicionarArremesso(self, arremesso):
+    # Adiciona arremessos do jogador no atributo que os armazena
+    def setArremesso(self, arremesso):
         self.__arremessos.append(arremesso)
-
+    
+    #Retorna os arremessos do jogador
     def getArremessos(self):
         return self.__arremessos
 
 # Classe Arremesso herdando a classe jogo
 class Arremesso (Jogo):
+    
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
+    
     def arremessar(self, jog):
         val = Validador()
         cont = 0
@@ -184,12 +192,13 @@ class Arremesso (Jogo):
                 print('Arremesso '+str(cont+1))
                 arremesso = val.Float(arremesso)
             if arremesso != False:
-                jog.AdicionarArremesso(arremesso)
+                jog.setArremesso(arremesso)
                 arremessos=jog.getArremessos()
                 arremessos=sorted(arremessos)
             cont += 1
         return arremessos
 
+    # Método que define o ganhador da partida, mostrando uma mensagem personalizada
     def ganhador(self, jogo, jog1, jog2):
         print('---------------------------')
         arremesosJog1 = jogo.arremessar(jog1)
@@ -210,6 +219,7 @@ class Arremesso (Jogo):
         else:
             print('Empate')
 
+    # Método que inicia todo o jogo de Arremesso e termina o mesmo baseado na escolha do usuário ao final da partida
     def iniciarJogo(self,jog1,jog2):
         partida = 1
         val = Validador()
@@ -235,9 +245,11 @@ class Arremesso (Jogo):
                 os.system("cls")
         main()
 
+# Função principal do programa
 def main():
     val = Validador()
     opcao = 0
+    
     while (opcao == 0):
         os.system("cls")
         menu()
@@ -254,6 +266,7 @@ def main():
         jog2Gin = JogadorGinastica(j2)
         ginastica = Ginastica(jog1Gin, jog2Gin)
         ginastica.iniciarJogo(jog1Gin, jog2Gin)
+
     elif opcao == 2:
         print('Digite o nome do jogador 1')
         j1 = ''
@@ -268,13 +281,14 @@ def main():
 
     elif opcao == 3:
         breakpoint
+
     else:
         print('Opção inexistente no menu')
         time.sleep(2.5)
         os.system("cls")
         main()
 
-
+# Menu principal do usuário
 def menu():
     print("----COMPETIÇÕES ESPORTIVAS----\n")
     print("Digite uma opção\n")
@@ -282,5 +296,5 @@ def menu():
     print("2 - Arremesso de peso")
     print("3 - Sair do jogo")
 
-
+#Chamada da main
 main()
