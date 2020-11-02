@@ -189,6 +189,7 @@ class Arremesso (Jogo):
             if arremesso != False:
                 arremessos.append(arremesso)
                 arremessos = sorted(arremessos)
+                ##
             cont += 1
         return arremessos
 
