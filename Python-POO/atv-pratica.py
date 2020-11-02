@@ -9,6 +9,8 @@ HENRIQUE CAMARGO
 GUILHERME MAIURI GATTI
 
 '''
+
+
 class Validador:
     def Int(self, n):
         try:
@@ -105,12 +107,12 @@ class Ginastica(Jogo):
 
     def calcNota(self, jog):
         pontuacao = jog.getPontuacao()
-        pontuacao=sorted(pontuacao)
+        pontuacao = sorted(pontuacao)
         total = int(0)
         contBaixa = 0
         for i in pontuacao:
             total = sum(pontuacao) - pontuacao[0]
-        
+
         return int(total)
 
     def ganhador(self, jogo, jog1, jog2):
@@ -126,9 +128,51 @@ class Ginastica(Jogo):
 
         print('---------------------------')
 
+
 class Arremesso (Jogo):
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
+
+    def iniciarJogo(self, jog1, jog2):
+        partida = 1
+        val = Validador()
+        while(partida == 1):
+            jogo = Arremesso(jog1, jog2)
+            jogo.ganhador(jogo, jog1, jog2)
+            print('Jogar mais uma partida? (1 sim - 0 não)')
+            partida = val.Int(partida)
+        main()
+
+    def arremessar(self, jog):
+        val = Validador()
+        cont = 0
+        arremessos = []
+        arremesso = ''
+        print('Jogador '+jog.getNome())
+        while (cont < 3):
+            print('Arremsso '+str(cont+1))
+            arremessos.append(val.Float(arremesso))
+            arremessos = sorted(arremessos)
+            cont += 1
+        return arremessos
+
+    def ganhador(self, jogo, jog1, jog2):
+        print('---------------------------')
+        arremesosJog1 = jogo.arremessar(jog1)
+        arremesosJog2 = jogo.arremessar(jog2)
+        print('Arremessos do jogador '+jog1.getNome()+' '+str(arremesosJog1))
+        print('Arremessos do jogador '+jog2.getNome()+' '+str(arremesosJog2))
+        if arremesosJog1[2] > arremesosJog2[2]:
+            print('Parabéns, '+jog1.getNome()+', você venceu!')
+        elif arremesosJog2[2] > arremesosJog1[2]:
+            print('Parabéns, '+jog2.getNome()+', você venceu!')
+        elif arremesosJog2[2] == arremesosJog1[2]:
+            if arremesosJog1[1] > arremesosJog2[1]:
+                print('Parabéns, '+jog1.getNome()+', você venceu com a segunda melhor nota!')
+            elif arremesosJog2[1] > arremesosJog1[1]:
+                print('Parabéns, '+jog2.getNome()+', você venceu com a segunda melhor nota!')
+        else:
+            print('Empate')
 
 
 def main():
@@ -159,7 +203,8 @@ def main():
         j2 = val.Input(j2)
         jog1Arremesso = Jogador(j1)
         jog2Arremesso = Jogador(j2)
-        arremesso = Arremesso (jog1Arremesso, jog2Arremesso)
+        arremesso = Arremesso(jog1Arremesso, jog2Arremesso)
+        arremesso.iniciarJogo(jog1Arremesso, jog2Arremesso)
 
     elif opcao == 3:
         breakpoint
