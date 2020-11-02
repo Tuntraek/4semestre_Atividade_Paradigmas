@@ -10,9 +10,9 @@ GUILHERME MAIURI GATTI
 
 '''
 
-##Classe com métodos de validação de int, float e somente letras
+# Classe com métodos de validação de int, float e somente letras
 class Validador:
-    #Validador de Int
+    # Validador de Int
     def Int(self, n):
         try:
             n = int(input())
@@ -24,7 +24,8 @@ class Validador:
             print('---------------------------')
             time.sleep(2)
             return False
-    #Validador de Float
+    # Validador de Float
+
     def Float(self, n):
         try:
             n = float(input())
@@ -37,11 +38,11 @@ class Validador:
             time.sleep(2)
             return False
 
-    #Classe auxiliar da Input - Retorna Truue se a String conter somente letras
+    # Classe auxiliar da Input - Retorna Truue se a String conter somente letras
     def Alpha(self, nome):
         return str(nome).isalpha()
 
-    #Valida um input de String do usuário para aceitar somente letras no input
+    # Valida um input de String do usuário para aceitar somente letras no input
     def Input(self, nome):
         nome = input()
         while not self.Alpha(nome):
@@ -57,6 +58,8 @@ class Jogador:
 
     def getNome(self):
         return self.__nome
+
+
 class JogadorGinastica(Jogador):
     def __init__(self, nome):
         self.__pontuacao = [int, int, int, int, int]
@@ -120,7 +123,7 @@ class Ginastica(Jogo):
             jogo.ganhador(jogo, jog1, jog2)
             print('Jogar mais uma partida? (1 sim - 0 não)')
             partida = val.Int(partida)
-            while partida != 1 and partida != 0:
+            while partida == False:
                 print('Apenas 1 ou 0')
                 partida = val.Int(partida)
             os.system("cls")
@@ -151,11 +154,23 @@ class Ginastica(Jogo):
         print('---------------------------')
 
 
+class JogadorArremesso(Jogador):
+    def __init__(self, nome):
+        self.__arremessos = []
+        super().__init__(nome)
+
+    def AdicionarArremesso(self, arremesso):
+        self.__arremessos.append(arremesso)
+
+    def getArremessos(self):
+        return self.__arremessos
+
+
 class Arremesso (Jogo):
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
 
-    def iniciarJogo(self, jog1, jog2):
+    def iniciarJogo(self,jog1,jog2):
         partida = 1
         val = Validador()
         while(partida == 1):
@@ -174,18 +189,16 @@ class Arremesso (Jogo):
             jogo.ganhador(jogo, jog1, jog2)
             print('Jogar mais uma partida? (1 sim - 0 não)')
             partida = val.Int(partida)
-            while partida != 1 and partida != 0:
+            while partida == False:
                 print('Apenas 1 ou 0')
                 partida = val.Int(partida)
-            os.system("cls")
-        os.system("cls")
+                os.system("cls")
         main()
 
     def arremessar(self, jog):
         val = Validador()
         cont = 0
         arremessos = []
-        
         print('Jogador '+jog.getNome())
         while (cont < 3):
             arremesso = False
@@ -193,8 +206,9 @@ class Arremesso (Jogo):
                 print('Arremesso '+str(cont+1))
                 arremesso = val.Float(arremesso)
             if arremesso != False:
-                arremessos.append(arremesso)
-                arremessos = sorted(arremessos)
+                jog.AdicionarArremesso(arremesso)
+                arremessos=jog.getArremessos()
+                arremessos=sorted(arremessos)
             cont += 1
         return arremessos
 
@@ -245,8 +259,8 @@ def main():
         print('Digite o nome do jogador 2')
         j2 = ''
         j2 = val.Input(j2)
-        jog1Arremesso = Jogador(j1)
-        jog2Arremesso = Jogador(j2)
+        jog1Arremesso = JogadorArremesso(j1)
+        jog2Arremesso = JogadorArremesso(j2)
         arremesso = Arremesso(jog1Arremesso, jog2Arremesso)
         arremesso.iniciarJogo(jog1Arremesso, jog2Arremesso)
 
