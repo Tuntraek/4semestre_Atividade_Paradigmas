@@ -63,14 +63,14 @@ class Jogador:
 # Classe JogadorGinastica herdando clase Jogador
 class JogadorGinastica(Jogador):
     def __init__(self, nome):
-        self.__pontuacao = ['','','','','']
+        self.__notas = ['','','','','']
         super().__init__(nome)
+    # Método que retorna a lista com as notas
+    def getNotas(self):
+        return self.__notas
 
-    def getPontuacao(self):
-        return self.__pontuacao
-
-    def setPontuacao(self, pontuacao):
-        self.__pontuacao = pontuacao
+    def setNotas(self, notas):
+        self.__notas = notas
 
 #Classe básica para jogo
 class Jogo:
@@ -88,7 +88,7 @@ class Ginastica(Jogo):
     def nota(self, jog):
         validador = Validador()
         cont = 0
-        pontuacao = jog.getPontuacao()
+        pontuacao = jog.getNotas()
         print('---------------------------')
         print('Jogador '+jog.getNome())
         while(cont < 5):
@@ -100,19 +100,19 @@ class Ginastica(Jogo):
                     print('Nota de 0 a 10!')
                     pontuacao[cont] = False
 
-            jog.setPontuacao(pontuacao)
+            jog.setNotas(pontuacao)
             cont = cont + 1
         print('---------------------------')
 
     # Método que calcula a nota final de cada jogador e a retorna.
     def calcNota(self, jog):
-        pontuacao = jog.getPontuacao()
-        pontuacao = sorted(pontuacao)
+        notas = jog.getNotas()
+        notas = sorted(notas)
         total = int(0)
         contBaixa = 0
 
-        for i in pontuacao:
-            total = sum(pontuacao) - pontuacao[0]
+        for i in notas:
+            total = sum(notas) - notas[0]
 
         return int(total)
         
