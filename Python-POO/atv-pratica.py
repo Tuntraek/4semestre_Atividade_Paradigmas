@@ -63,7 +63,7 @@ class Jogador:
 # Classe JogadorGinastica herdando clase Jogador
 class JogadorGinastica(Jogador):
     def __init__(self, nome):
-        self.__pontuacao = []
+        self.__pontuacao = ['','','','','']
         super().__init__(nome)
 
     def getPontuacao(self):
@@ -92,7 +92,6 @@ class Ginastica(Jogo):
         print('---------------------------')
         print('Jogador '+jog.getNome())
         while(cont < 5):
-
             pontuacao[cont] = False
             while (pontuacao[cont] == False):
                 print('Digite a nota '+str(cont+1))
@@ -181,7 +180,7 @@ class Arremesso (Jogo):
     
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
-        
+
     #Método para o jogador realizar os arremessos, retornando todos os arremessos do jogador
     def arremessar(self, jog):
         val = Validador()
