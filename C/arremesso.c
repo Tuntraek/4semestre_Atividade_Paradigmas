@@ -9,7 +9,7 @@ void arremessoinit(){
     arremessoplayerturn(atleta1);
     arremessoplayerturn(atleta2);
 
-    printwinner(setwinner(atleta1, atleta2));
+    printarremessowinner(setarremessowinner(atleta1, atleta2));
 
     if(atleta1)
         free(atleta1);
@@ -36,11 +36,13 @@ void printarremessomenu(){
     system("cls");
 }
 
-void calculatehighscore(atleta *atleta_){
-    for(int i = 0; i < 3; i++){
+#define NUMEROARREMESSOS 3
+
+void arremessocalculatehighscore(atleta *atleta_){
+    for(int i = 0; i < NUMEROARREMESSOS; i++){
         atleta_->highscores[i] = atleta_->pontuacao[i];
     }
-    qsort(&atleta_->highscores, 3, sizeof(double), compare_doubles);
+    qsort(&atleta_->highscores, NUMEROARREMESSOS, sizeof(double), compare_doubles);
 }
 
 void arremessoplayerturn(atleta *atleta_){
@@ -60,19 +62,19 @@ void arremessoplayerturn(atleta *atleta_){
         if( ponto == 0   ||     //limitar a pontuação, record mundial masculino é de 23.12m...
             ponto > 30.f ||     //Valores negativos existem, o atleta pode ter arremessado para trás.
             ponto < -30.f  ){
-
+            printinvalidinput("Valor entre -30 e 30!");
             i--;
         }
         system("cls");
     }
 
-    calculatehighscore(atleta_);
+    arremessocalculatehighscore(atleta_);
 
     system("cls");
 
 }
 
-atleta* setwinner(atleta *atleta1, atleta *atleta2){
+atleta* setarremessowinner(atleta *atleta1, atleta *atleta2){
     int i = 0;
     do {
         if(atleta1->highscores[i] == atleta2->highscores[i]){
@@ -90,18 +92,7 @@ atleta* setwinner(atleta *atleta1, atleta *atleta2){
     return NULL;
 }
 
-void printloadingresult(){
-    fputs("Calculando resultado", stdout);
-    Sleep(500);
-    for(int i=0; i<3; ++i){
-        fputs(".", stdout);
-        Sleep(500);
-    }
-    system("cls");
-    Sleep(400);
-}
-
-void printwinner(atleta* atleta){
+void printarremessowinner(atleta* atleta){
 
     printloadingresult();
 
