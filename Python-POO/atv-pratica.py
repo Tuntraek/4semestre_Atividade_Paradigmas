@@ -12,7 +12,7 @@ GUILHERME MAIURI GATTI
 
 # Classe com métodos de validação de int, float e somente letras
 class Validador:
-    # Validador de Int
+    # Validador para Int
     def Int(self, n):
         try:
             n = int(input())
@@ -24,8 +24,8 @@ class Validador:
             print('---------------------------')
             time.sleep(2)
             return False
-    # Validador de Float
 
+    # Validador para Float
     def Float(self, n):
         try:
             n = float(input())
@@ -38,7 +38,7 @@ class Validador:
             time.sleep(2)
             return False
 
-    # Classe auxiliar da Input - Retorna Truue se a String conter somente letras
+    # Classe auxiliar da Input - Retorna True se a String conter somente letras
     def Alpha(self, nome):
         return str(nome).isalpha()
 
@@ -51,7 +51,7 @@ class Validador:
 
         return nome
 
-
+# Classe básica para jogador
 class Jogador:
     def __init__(self, nome):
         self.__nome = nome
@@ -59,10 +59,10 @@ class Jogador:
     def getNome(self):
         return self.__nome
 
-
+# Classe JogadorGinastica herdando clase Jogador
 class JogadorGinastica(Jogador):
     def __init__(self, nome):
-        self.__pontuacao = [int, int, int, int, int]
+        self.__pontuacao = []
         super().__init__(nome)
 
     def getPontuacao(self):
@@ -71,17 +71,19 @@ class JogadorGinastica(Jogador):
     def setPontuacao(self, pontuacao):
         self.__pontuacao = pontuacao
 
-
+#Classe básica para jogo
 class Jogo:
     def __init__(self, jog1, jog2):
         self.__jog1 = jog1
         self.__jog2 = jog2
 
-
+# Classe Ginastica herdando a classe Jogo
 class Ginastica(Jogo):
+    #Construtor da classe - inicializa classe pai
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
 
+    # Método para pegar o input de notas e setar no atributo de pontuação
     def nota(self, jog):
         validador = Validador()
         cont = 0
@@ -101,7 +103,31 @@ class Ginastica(Jogo):
             jog.setPontuacao(pontuacao)
             cont = cont + 1
         print('---------------------------')
+    # Método que calcula a nota final de cada jogador e a retorna.
+    def calcNota(self, jog):
+        pontuacao = jog.getPontuacao()
+        pontuacao = sorted(pontuacao)
+        total = int(0)
+        contBaixa = 0
+        for i in pontuacao:
+            total = sum(pontuacao) - pontuacao[0]
 
+        return int(total)
+        
+    # Método que define o ganhador da partida, mostrando uma mensagem personalizada
+    def ganhador(self, jogo, jog1, jog2):
+        print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
+        print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
+        print('---------------------------')
+        if int(jogo.calcNota(jog1)) > int(jogo.calcNota(jog2)):
+            print('Parabéns, '+jog1.getNome()+', você venceu!')
+        elif int(jogo.calcNota(jog1)) == int(jogo.calcNota(jog2)):
+            print("Empate entre "+jog1.getNome()+' e '+jog1.getNome())
+        else:
+            print('Parabéns, '+jog2.getNome()+', você venceu!')
+
+
+    # Método que inicia todo o jogo e termina o mesmo baseado na escolha do usuário ao final da partida
     def iniciarJogo(self, jog1, jog2):
         partida = 1
         val = Validador()
@@ -109,7 +135,7 @@ class Ginastica(Jogo):
         while(partida == 1):
             print("+---------------------------+\n" +
                   "|   Dois atletas competem   |\n" +
-                  "|   e recebem 5 pontuacoes  |\n" +
+                  "|   e recebem 5 pontuações  |\n" +
                   "|    cada. Descarta-se a    |\n" +
                   "|   menor nota. Compara-se  |\n" +
                   "|   a soma das notas para   |\n" +
@@ -129,31 +155,9 @@ class Ginastica(Jogo):
             os.system("cls")
         os.system("cls")
         main()
-
-    def calcNota(self, jog):
-        pontuacao = jog.getPontuacao()
-        pontuacao = sorted(pontuacao)
-        total = int(0)
-        contBaixa = 0
-        for i in pontuacao:
-            total = sum(pontuacao) - pontuacao[0]
-
-        return int(total)
-
-    def ganhador(self, jogo, jog1, jog2):
-        print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
-        print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
-        print('---------------------------')
-        if int(jogo.calcNota(jog1)) > int(jogo.calcNota(jog2)):
-            print('Parabéns, '+jog1.getNome()+', você venceu!')
-        elif int(jogo.calcNota(jog1)) == int(jogo.calcNota(jog2)):
-            print("Empate entre "+jog1.getNome()+' e '+jog1.getNome())
-        else:
-            print('Parabéns, '+jog2.getNome()+', você venceu!')
-
         print('---------------------------')
 
-
+# Classe JogadorArremesso herdando a classe Jogador
 class JogadorArremesso(Jogador):
     def __init__(self, nome):
         self.__arremessos = []
@@ -165,36 +169,10 @@ class JogadorArremesso(Jogador):
     def getArremessos(self):
         return self.__arremessos
 
-
+# Classe Arremesso herdando a classe jogo
 class Arremesso (Jogo):
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
-
-    def iniciarJogo(self,jog1,jog2):
-        partida = 1
-        val = Validador()
-        while(partida == 1):
-            print("+---------------------------+\n" +
-                  "|   Dois atletas competem   |\n" +
-                  "|   e possuem 3 arremessos  |\n" +
-                  "|  cada. Vence quem possuir |\n" +
-                  "|   a maior distancia. Em   |\n" +
-                  "|   caso de empate, vence   |\n" +
-                  "|   quem tiver a proxima    |\n" +
-                  "|     maior distancia.      |\n" +
-                  "+---------------------------+\n" +
-                  " ENTER para continuar...")
-            entrada = input()
-            jogo = Arremesso(jog1, jog2)
-            jogo.ganhador(jogo, jog1, jog2)
-            print('Jogar mais uma partida? (1 sim - 0 não)')
-            partida = val.Int(partida)
-            while partida == False:
-                print('Apenas 1 ou 0')
-                partida = val.Int(partida)
-                os.system("cls")
-        main()
-
     def arremessar(self, jog):
         val = Validador()
         cont = 0
@@ -232,6 +210,30 @@ class Arremesso (Jogo):
         else:
             print('Empate')
 
+    def iniciarJogo(self,jog1,jog2):
+        partida = 1
+        val = Validador()
+        while(partida == 1):
+            print("+---------------------------+\n" +
+                  "|   Dois atletas competem   |\n" +
+                  "|   e possuem 3 arremessos  |\n" +
+                  "|  cada. Vence quem possuir |\n" +
+                  "|   a maior distancia. Em   |\n" +
+                  "|   caso de empate, vence   |\n" +
+                  "|   quem tiver a proxima    |\n" +
+                  "|     maior distancia.      |\n" +
+                  "+---------------------------+\n" +
+                  " ENTER para continuar...")
+            entrada = input()
+            jogo = Arremesso(jog1, jog2)
+            jogo.ganhador(jogo, jog1, jog2)
+            print('Jogar mais uma partida? (1 sim - 0 não)')
+            partida = val.Int(partida)
+            while partida == False:
+                print('Apenas 1 ou 0')
+                partida = val.Int(partida)
+                os.system("cls")
+        main()
 
 def main():
     val = Validador()
