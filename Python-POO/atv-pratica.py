@@ -22,7 +22,7 @@ class Validador:
             print('Digite novamente')
             print('---------------------------')
             time.sleep(2)
-            return 0
+            return False
 
     def Float(self, n):
         try:
@@ -34,7 +34,7 @@ class Validador:
             print('Digite novamente')
             print('---------------------------')
             time.sleep(2)
-            return 0
+            return False
 
     def Alpha(self, nome):
         return str(nome).isalpha()
@@ -96,17 +96,17 @@ class Ginastica(Jogo):
     def iniciarJogo(self, jog1, jog2):
         partida = 1
         val = Validador()
-        
+
         while(partida == 1):
-            print("+---------------------------+\n"+
-          "|   Dois atletas competem   |\n"+
-          "|   e recebem 5 pontuacoes  |\n"+
-          "|    cada. Descarta-se a    |\n"+
-          "|   menor nota. Compara-se  |\n"+
-          "|   a soma das notas para   |\n"+
-          "|    declarar o vencedor.   |\n"+
-          "+---------------------------+\n"+
-          " ENTER para continuar...")
+            print("+---------------------------+\n" +
+                  "|   Dois atletas competem   |\n" +
+                  "|   e recebem 5 pontuacoes  |\n" +
+                  "|    cada. Descarta-se a    |\n" +
+                  "|   menor nota. Compara-se  |\n" +
+                  "|   a soma das notas para   |\n" +
+                  "|    declarar o vencedor.   |\n" +
+                  "+---------------------------+\n" +
+                  " ENTER para continuar...")
             entrada = input()
             jogo = Ginastica(jog1, jog2)
             jogo.nota(jog1)
@@ -154,15 +154,15 @@ class Arremesso (Jogo):
         val = Validador()
         while(partida == 1):
             print("+---------------------------+\n" +
-              "|   Dois atletas competem   |\n" +
-              "|   e possuem 3 arremessos  |\n" +
-              "|  cada. Vence quem possuir |\n" +
-              "|   a maior distancia. Em   |\n" +
-              "|   caso de empate, vence   |\n" +
-              "|   quem tiver a proxima    |\n" +
-              "|     maior distancia.      |\n" +
-              "+---------------------------+\n" +
-              " ENTER para continuar...")
+                  "|   Dois atletas competem   |\n" +
+                  "|   e possuem 3 arremessos  |\n" +
+                  "|  cada. Vence quem possuir |\n" +
+                  "|   a maior distancia. Em   |\n" +
+                  "|   caso de empate, vence   |\n" +
+                  "|   quem tiver a proxima    |\n" +
+                  "|     maior distancia.      |\n" +
+                  "+---------------------------+\n" +
+                  " ENTER para continuar...")
             entrada = input()
             jogo = Arremesso(jog1, jog2)
             jogo.ganhador(jogo, jog1, jog2)
@@ -179,12 +179,16 @@ class Arremesso (Jogo):
         val = Validador()
         cont = 0
         arremessos = []
-        arremesso = ''
+        
         print('Jogador '+jog.getNome())
         while (cont < 3):
-            print('Arremesso '+str(cont+1))
-            arremessos.append(val.Float(arremesso))
-            arremessos = sorted(arremessos)
+            arremesso = False
+            while (arremesso == False):
+                print('Arremesso '+str(cont+1))
+                arremesso = val.Float(arremesso)
+            if arremesso != False:
+                arremessos.append(arremesso)
+                arremessos = sorted(arremessos)
             cont += 1
         return arremessos
 
