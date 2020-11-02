@@ -181,7 +181,8 @@ class Arremesso (Jogo):
     
     def __init__(self, jog1, jog2):
         super().__init__(jog1, jog2)
-    
+        
+    #Método para o jogador realizar os arremessos, retornando todos os arremessos do jogador
     def arremessar(self, jog):
         val = Validador()
         cont = 0
