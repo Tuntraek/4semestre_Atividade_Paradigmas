@@ -56,6 +56,7 @@ class Jogador:
     def __init__(self, nome):
         self.__nome = nome
 
+    # Retorna o nome do jogador
     def getNome(self):
         return self.__nome
 
@@ -231,7 +232,7 @@ class Arremesso (Jogo):
                   "|   a maior distancia. Em   |\n" +
                   "|   caso de empate, vence   |\n" +
                   "|   quem tiver a proxima    |\n" +
-                  "|     maior distancia.      |\n" +
+                  "|     maior distância.      |\n" +
                   "+---------------------------+\n" +
                   " ENTER para continuar...")
             entrada = input()
@@ -249,12 +250,13 @@ class Arremesso (Jogo):
 def main():
     val = Validador()
     opcao = 0
-    
+
     while (opcao == 0):
         os.system("cls")
         menu()
         opcao = val.Int(opcao)
 
+    #Ginástica artística
     if opcao == 1:
         print('Digite o nome do jogador 1')
         j1 = ''
@@ -266,7 +268,7 @@ def main():
         jog2Gin = JogadorGinastica(j2)
         ginastica = Ginastica(jog1Gin, jog2Gin)
         ginastica.iniciarJogo(jog1Gin, jog2Gin)
-
+    #Arremesso de peso
     elif opcao == 2:
         print('Digite o nome do jogador 1')
         j1 = ''
