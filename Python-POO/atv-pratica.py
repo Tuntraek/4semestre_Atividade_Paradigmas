@@ -1,7 +1,14 @@
 import os
 import time
 
+'''
+ATIVIDADE PRATICA  - PARADIGMAS DE PROGRAMAÇÃO
 
+EVAIR MARINHO
+HENRIQUE CAMARGO
+GUILHERME MAIURI GATTI
+
+'''
 class Validador:
     def Int(self, n):
         try:
