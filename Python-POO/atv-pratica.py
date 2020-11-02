@@ -105,7 +105,7 @@ class Ginastica(Jogo):
         print('---------------------------')
 
     # Método que calcula a nota final de cada jogador e a retorna.
-    def calcNota(self, jog):
+    def calcPontuacao(self, jog):
         notas = jog.getNotas()
         notas = sorted(notas)
         total = int(0)
@@ -118,13 +118,13 @@ class Ginastica(Jogo):
         
     # Método que define o ganhador da partida, mostrando uma mensagem personalizada
     def ganhador(self, jogo, jog1, jog2):
-        print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcNota(jog1)))
-        print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcNota(jog2)))
+        print('Nota do Jogador 1 '+jog1.getNome()+': '+str(jogo.calcPontuacao(jog1)))
+        print('Nota do Jogador 2 '+jog2.getNome()+': '+str(jogo.calcPontuacao(jog2)))
         print('---------------------------')
 
-        if int(jogo.calcNota(jog1)) > int(jogo.calcNota(jog2)):
+        if int(jogo.calcPontuacao(jog1)) > int(jogo.calcPontuacao(jog2)):
             print('Parabéns, '+jog1.getNome()+', você venceu!')
-        elif int(jogo.calcNota(jog1)) == int(jogo.calcNota(jog2)):
+        elif int(jogo.calcPontuacao(jog1)) == int(jogo.calcPontuacao(jog2)):
             print("Empate entre "+jog1.getNome()+' e '+jog1.getNome())
         else:
             print('Parabéns, '+jog2.getNome()+', você venceu!')
