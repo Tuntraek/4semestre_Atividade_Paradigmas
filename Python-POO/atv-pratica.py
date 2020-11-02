@@ -19,7 +19,7 @@ class Validador:
             return n
         except:
             print('---------------------------')
-            print('Entrada inválida!')
+            print('Entrada inválida, apenas números inteiros!')
             print('Digite novamente')
             print('---------------------------')
             time.sleep(2)
@@ -85,7 +85,7 @@ class Ginastica(Jogo):
         super().__init__(jog1, jog2)
 
     # Método para pegar o input de notas e setar no atributo de pontuação
-    def nota(self, jog):
+    def inputNotas(self, jog):
         validador = Validador()
         cont = 0
         pontuacao = jog.getNotas()
@@ -146,14 +146,11 @@ class Ginastica(Jogo):
                   " ENTER para continuar...")
             entrada = input()
             jogo = Ginastica(jog1, jog2)
-            jogo.nota(jog1)
-            jogo.nota(jog2)
+            jogo.inputNotas(jog1)
+            jogo.inputNotas(jog2)
             jogo.ganhador(jogo, jog1, jog2)
             print('Jogar mais uma partida? (1 sim - 0 não)')
             partida = val.Int(partida)
-            while partida == False:
-                print('Apenas 1 ou 0')
-                partida = val.Int(partida)
             os.system("cls")
         os.system("cls")
 
@@ -240,21 +237,16 @@ class Arremesso (Jogo):
             jogo.ganhador(jogo, jog1, jog2)
             print('Jogar mais uma partida? (1 sim - 0 não)')
             partida = val.Int(partida)
-            while partida == False:
-                print('Apenas 1 ou 0')
-                partida = val.Int(partida)
-                os.system("cls")
+            os.system("cls")
+        os.system("cls")
         main()
 
 # Função principal do programa
 def main():
     val = Validador()
-    opcao = 0
-
-    while (opcao == 0):
-        os.system("cls")
-        menu()
-        opcao = val.Int(opcao)
+    opcao = '' 
+    menu()
+    opcao = val.Int(opcao)
 
     #Ginástica artística
     if opcao == 1:
