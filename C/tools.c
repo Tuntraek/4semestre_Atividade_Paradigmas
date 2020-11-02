@@ -1,18 +1,14 @@
 #include "tools.h"
 
-void printinvalidinput(char *message){
-    system("cls");
-    fputs(message, stdout);
-    Sleep(1000);
-    system("cls");
-}
-
 void getplayername(atleta *atleta_){
     char *nome = NULL;
     size_t len;
+    char message[50];
+    static int numero_jogador = 1;
 
     while(TRUE){
-        getinput(atleta_->nome, "Primeiro nome: ");
+        sprintf(message, "Primeiro nome do atleta #%d: ", numero_jogador);
+        getinput(atleta_->nome, message);
         nome = atleta_->nome;
 
         len = strlen(nome);
@@ -24,7 +20,7 @@ void getplayername(atleta *atleta_){
     if(nome[len-1] == '\n'){
         nome[len-1] = '\0';
     }
-
+    numero_jogador++;
 }
 
 _Bool validateName(atleta * atleta_){
@@ -44,6 +40,24 @@ _Bool validateName(atleta * atleta_){
                 i++;
         }
     }
+}
+
+void printinvalidinput(char *message){
+    system("cls");
+    fputs(message, stdout);
+    Sleep(1000);
+    system("cls");
+}
+
+void printloadingresult(){
+    fputs("Calculando resultado", stdout);
+    Sleep(500);
+    for(int i=0; i<3; ++i){
+        fputs(".", stdout);
+        Sleep(500);
+    }
+    system("cls");
+    Sleep(400);
 }
 
 void printmainmenu(){
@@ -132,9 +146,7 @@ void getdouble(double *dval){
         *dval = 0;
 }
 
-int
-compare_doubles (const void *a, const void *b)
-{
+int compare_doubles (const void *a, const void *b) {
   const double *da = (const double *) a;
   const double *db = (const double *) b;
 

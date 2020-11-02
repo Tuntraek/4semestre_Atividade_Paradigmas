@@ -5,10 +5,10 @@
 
 void printarremessomenu();
 void arremessoinit();
-void calculatehighscore(atleta*);
+void arremessocalculatehighscore(atleta*);
 void arremessoplayerturn(atleta* );
-void printwinner(atleta* );
-atleta* setwinner(atleta* , atleta* );
+void printarremessowinner(atleta* );
+atleta* setarremessowinner(atleta* , atleta* );
 
 
 #endif // ARREMESSO
