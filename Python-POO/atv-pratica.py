@@ -10,8 +10,9 @@ GUILHERME MAIURI GATTI
 
 '''
 
-
+##Classe com métodos de validação de int, float e somente letras
 class Validador:
+    #Validador de Int
     def Int(self, n):
         try:
             n = int(input())
@@ -23,7 +24,7 @@ class Validador:
             print('---------------------------')
             time.sleep(2)
             return False
-
+    #Validador de Float
     def Float(self, n):
         try:
             n = float(input())
@@ -36,9 +37,11 @@ class Validador:
             time.sleep(2)
             return False
 
+    #Classe auxiliar da Input - Retorna Truue se a String conter somente letras
     def Alpha(self, nome):
         return str(nome).isalpha()
 
+    #Valida um input de String do usuário para aceitar somente letras no input
     def Input(self, nome):
         nome = input()
         while not self.Alpha(nome):
@@ -51,10 +54,13 @@ class Validador:
 class Jogador:
     def __init__(self, nome):
         self.__nome = nome
-        self.__pontuacao = [int, int, int, int, int]
 
     def getNome(self):
         return self.__nome
+class JogadorGinastica(Jogador):
+    def __init__(self, nome):
+        self.__pontuacao = [int, int, int, int, int]
+        super().__init__(nome)
 
     def getPontuacao(self):
         return self.__pontuacao
@@ -189,7 +195,6 @@ class Arremesso (Jogo):
             if arremesso != False:
                 arremessos.append(arremesso)
                 arremessos = sorted(arremessos)
-                ##
             cont += 1
         return arremessos
 
@@ -229,8 +234,8 @@ def main():
         print('Digite o nome do jogador 2')
         j2 = ''
         j2 = val.Input(j2)
-        jog1Gin = Jogador(j1)
-        jog2Gin = Jogador(j2)
+        jog1Gin = JogadorGinastica(j1)
+        jog2Gin = JogadorGinastica(j2)
         ginastica = Ginastica(jog1Gin, jog2Gin)
         ginastica.iniciarJogo(jog1Gin, jog2Gin)
     elif opcao == 2:
