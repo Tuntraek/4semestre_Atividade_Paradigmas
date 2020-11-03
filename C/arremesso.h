@@ -6,7 +6,7 @@
 void printarremessomenu();
 void arremessoinit();
 void arremessocalculatehighscore(atleta*);
-void arremessoplayerturn(atleta* );
+void arremessoplayerturn(atleta* , int );
 void printarremessowinner(atleta* );
 atleta* setarremessowinner(atleta* , atleta* );
 

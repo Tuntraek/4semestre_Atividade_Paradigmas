@@ -5,7 +5,7 @@
 
 void ginasticaartisticainit();
 void printginasticamenu();
-void ginasticaplayerturn(atleta *, double *);
+void ginasticaplayerturn(atleta *, double *, int);
 void ginasticacalculatehighscore(atleta *, double *);
 void printginasticawinner(atleta *);
 atleta * setginasticawinner(atleta *, atleta *,double ,double );

@@ -6,8 +6,8 @@ void arremessoinit(){
     atleta *atleta1 = malloc(sizeof(atleta));
     atleta *atleta2 = malloc(sizeof(atleta));
 
-    arremessoplayerturn(atleta1);
-    arremessoplayerturn(atleta2);
+    arremessoplayerturn(atleta1, 1);
+    arremessoplayerturn(atleta2, 2);
 
     printarremessowinner(setarremessowinner(atleta1, atleta2));
 
@@ -45,9 +45,9 @@ void arremessocalculatehighscore(atleta *atleta_){
     qsort(&atleta_->highscores, NUMEROARREMESSOS, sizeof(double), compare_doubles);
 }
 
-void arremessoplayerturn(atleta *atleta_){
+void arremessoplayerturn(atleta *atleta_, int numeroJogador){
 
-    getplayername(atleta_);
+    getplayername(atleta_, numeroJogador);
     system("cls");
 
     for(int i=0; i < 3; i++){
@@ -62,7 +62,7 @@ void arremessoplayerturn(atleta *atleta_){
         if( ponto == 0   ||     //limitar a pontuação, record mundial masculino é de 23.12m...
             ponto > 30.f ||     //Valores negativos existem, o atleta pode ter arremessado para trás.
             ponto < -30.f  ){
-            printinvalidinput("Valor entre -30 e 30!");
+            printinvalidinput("Valor entre -30 e 30 com excessao do 0!", 2000);
             i--;
         }
         system("cls");

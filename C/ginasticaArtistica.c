@@ -9,8 +9,8 @@ void ginasticaartisticainit(){
     double totalAtleta1 = 0.f;
     double totalAtleta2 = 0.f;
 
-    ginasticaplayerturn(atleta1, &totalAtleta1);
-    ginasticaplayerturn(atleta2, &totalAtleta2);
+    ginasticaplayerturn(atleta1, &totalAtleta1, 1);
+    ginasticaplayerturn(atleta2, &totalAtleta2, 2);
 
     printginasticawinner(setginasticawinner(atleta1, atleta2, totalAtleta1, totalAtleta2));
 }
@@ -42,9 +42,9 @@ void printginasticawinner(atleta* atleta){
     system("cls");
 }
 
-void ginasticaplayerturn(atleta *atleta_, double * pontuacaoTotal){
+void ginasticaplayerturn(atleta *atleta_, double * pontuacaoTotal, int numeroJogador){
 
-    getplayername(atleta_);
+    getplayername(atleta_, numeroJogador);
     system("cls");
 
     for(int i=0; i < 5; i++){
@@ -58,7 +58,7 @@ void ginasticaplayerturn(atleta *atleta_, double * pontuacaoTotal){
 
         if( ponto > 10 ||
             ponto < 0.f  ){
-            printinvalidinput("Valor entre 0 e 10!");
+            printinvalidinput("Valor entre 0 e 10!", 1000);
             i--;
         }
         system("cls");

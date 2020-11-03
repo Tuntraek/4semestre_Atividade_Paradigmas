@@ -1,26 +1,25 @@
 #include "tools.h"
 
-void getplayername(atleta *atleta_){
+void getplayername(atleta *atleta_, int numeroJogador){
     char *nome = NULL;
     size_t len;
     char message[50];
-    static int numero_jogador = 1;
 
     while(TRUE){
-        sprintf(message, "Primeiro nome do atleta #%d: ", numero_jogador);
+        sprintf(message, "Primeiro nome do atleta #%d: ", numeroJogador);
         getinput(atleta_->nome, message);
         nome = atleta_->nome;
 
         len = strlen(nome);
         if (len > 0 && validateName(atleta_))
             break;
-        printinvalidinput("** Nome invalido. **");
+        printinvalidinput("** Nome invalido. **", 1000);
     }
 
     if(nome[len-1] == '\n'){
         nome[len-1] = '\0';
     }
-    numero_jogador++;
+
 }
 
 _Bool validateName(atleta * atleta_){
@@ -42,10 +41,10 @@ _Bool validateName(atleta * atleta_){
     }
 }
 
-void printinvalidinput(char *message){
+void printinvalidinput(char *message, int time){
     system("cls");
     fputs(message, stdout);
-    Sleep(1000);
+    Sleep(time);
     system("cls");
 }
 
@@ -82,6 +81,8 @@ void printendmessage(){
     Sleep(2000);
 }
 
+//Fiz essa função para usar no validate name, para deixar somente
+//a primeira letra do nome maiuscula mas não a usei...
 char* upperTolower(char* str){
     int pos = 0;
     while(str[pos] != '\0' && ( (int)str[pos] < 90 && (int)str[pos] > 65) ){

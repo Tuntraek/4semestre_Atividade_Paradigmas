@@ -20,7 +20,7 @@ int main(){
                 printendmessage();
                 break;
             default:
-                printinvalidinput("** Opcao errada **");
+                printinvalidinput("** Opcao errada **", 1000);
                 break;
         }
     }
