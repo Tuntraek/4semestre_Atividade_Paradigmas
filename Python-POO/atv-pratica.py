@@ -2,12 +2,22 @@ import os
 import time
 
 '''
-ATIVIDADE PRATICA  - PARADIGMAS DE PROGRAMAÇÃO
-
-EVAIR MARINHO
-HENRIQUE CAMARGO
-GUILHERME MAIURI GATTI
-
+PROJETO DO 4º SEMESTRE PARA PARADIGMAS DA PROGRAMAÇÃO
+    
+    Desenvolver um programa que simule dois jogos olímpicos,
+    Arremesso de peso e ginástica olímpica.
+    O programa apresenta um menu inicial para escolha dos jogos,
+    para cada jogo, pede-se os nomes dos atletas e as pontuações,
+    depois de tudo digitado, o programa calcula o resultado e
+    apresenta para o usuário.
+    
+    Alunos involvidos:
+    Nome: Guilherme Maiuri Gatti
+    RA:   20838912
+    Nome: Evair Marinho Vilas Boas Porfirio
+    RA:   21051966
+    Nome: Henrique Gonçalves Camargo
+    RA:   21331824
 '''
 
 # Classe com métodos de validação de int, float e somente letras
