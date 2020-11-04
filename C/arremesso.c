@@ -59,9 +59,10 @@ void arremessoplayerturn(atleta *atleta_, int numeroJogador){
 
         double ponto = atleta_->pontuacao[i];
 
-        if( ponto == 0   ||     //limitar a pontuação, record mundial masculino é de 23.12m...
-            ponto > 30.f ||     //Valores negativos existem, o atleta pode ter arremessado para trás.
-            ponto < -30.f  ){
+        if( ponto == 0    ||     //limitar a pontuação, record mundial masculino é de 23.12m...
+            ponto > 30.f  ||     //Valores negativos existem, o atleta pode ter arremessado para trás.
+            ponto < -30.f ||
+            ponto == -1000 ){
             printinvalidinput("Valor entre -30 e 30 com excessao do 0!", 2000);
             i--;
         }

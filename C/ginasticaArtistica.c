@@ -56,8 +56,9 @@ void ginasticaplayerturn(atleta *atleta_, double * pontuacaoTotal, int numeroJog
 
         double ponto = atleta_->pontuacao[i];
 
-        if( ponto > 10 ||
-            ponto < 0.f  ){
+        if( ponto > 10  ||
+            ponto < 0.f ||
+            ponto == -1000 ){
             printinvalidinput("Valor entre 0 e 10!", 1000);
             i--;
         }

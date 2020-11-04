@@ -6,7 +6,7 @@
 typedef struct atleta{
     char nome[MAX_NAME_SIZE];
     double pontuacao[5];
-    double highscores[3];
+    double highscores[5];
 } atleta;
 
 #endif // ATLETA

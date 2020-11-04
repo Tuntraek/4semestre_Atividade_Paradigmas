@@ -8,7 +8,7 @@
 #include "atleta.h"
 #include <stdbool.h>
 
-#define MAX_INPUT 10
+#define MAX_INPUT 100
 
 _Bool validateName(atleta *);
 void getplayername(atleta *, int);

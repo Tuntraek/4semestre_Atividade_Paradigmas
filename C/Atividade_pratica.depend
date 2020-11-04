@@ -86,13 +86,13 @@
 1603892781 c:\faculdade\cco\4 semestre\paradigmas\gitatividade\4semestre_atividade_paradigmas\ginasticaartistica.h
 	"tools.h"
 
-1604441443 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\arremesso.c
+1604451066 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\arremesso.c
 	"arremesso.h"
 
 1604439213 c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\arremesso.h
 	"tools.h"
 
-1604441380 c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\tools.h
+1604448360 c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\tools.h
 	<windows.h>
 	<stdio.h>
 	<stdlib.h>
@@ -100,18 +100,18 @@
 	"atleta.h"
 	<stdbool.h>
 
-1603892565 c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\atleta.h
+1604448360 c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\atleta.h
 
 1603890671 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\atleta.c
 	"atleta.h"
 
-1604441443 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\ginasticaartistica.c
+1604451087 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\ginasticaartistica.c
 	"ginasticaArtistica.h"
 
 1604439284 c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\ginasticaartistica.h
 	"tools.h"
 
-1603891344 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\main.c
+1604447649 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\main.c
 	"main.h"
 
 1603891342 c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\main.h
@@ -122,6 +122,6 @@
 	"arremesso.h"
 	"ginasticaArtistica.h"
 
-1604441443 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\tools.c
+1604451066 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\tools.c
 	"tools.h"
 

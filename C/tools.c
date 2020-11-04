@@ -24,7 +24,7 @@ void getplayername(atleta *atleta_, int numeroJogador){
 
 _Bool validateName(atleta * atleta_){
     int i = 0;
-    char *letra = &(atleta_->nome);
+    char *letra = (char*)&(atleta_->nome);
     while(*letra != '\0'){
         if( (int) *(letra+i) < 65   ||
           ( (int) *(letra+i) > 90   &&
@@ -133,18 +133,22 @@ void getint(int *ival){
 
 void getdouble(double *dval){
     // C string para input do usuario
-    char value[MAX_INPUT] = "";
+    char value[MAX_INPUT];
+    strcpy(value, "");
     getinput(value, " ");
 
     // double temporario para pegar o inteiro da string
     double temp;
+    if(strcmp(value, "") == 0){
+        *dval = -1000;
+        return;
+    }
 
-    // coloca um inteiro em temp se for encontrado em value
     if(sscanf(value, "%lf", &temp))
-        *dval = temp;
+        *dval = temp;   // coloca um inteiro em temp se for encontrado em value
     else
-        // qualquer valor double para dar a mensagem de erro
-        *dval = 0;
+        *dval = -1000;      // para dar a mensagem de erro
+
 }
 
 int compare_doubles (const void *a, const void *b) {
