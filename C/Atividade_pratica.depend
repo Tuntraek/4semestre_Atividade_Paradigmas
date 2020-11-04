@@ -125,3 +125,42 @@
 1604451066 source:c:\faculdade\cco\4 semestre\paradigmas\4semestre_atividade_paradigmas\c\tools.c
 	"tools.h"
 
+1604444544 source:c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\arremesso.c
+	"arremesso.h"
+
+1604444544 c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\arremesso.h
+	"tools.h"
+
+1604444544 c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\tools.h
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"atleta.h"
+	<stdbool.h>
+
+1604185530 c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\atleta.h
+
+1604163988 source:c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\atleta.c
+	"atleta.h"
+
+1604444544 source:c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\ginasticaartistica.c
+	"ginasticaArtistica.h"
+
+1604444544 c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\ginasticaartistica.h
+	"tools.h"
+
+1604444544 source:c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\main.c
+	"main.h"
+
+1604185530 c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\main.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"tools.h"
+	"arremesso.h"
+	"ginasticaArtistica.h"
+
+1604444544 source:c:\users\evair marinho\documents\projetos git\4semestre_atividade_paradigmas\c\tools.c
+	"tools.h"
+
